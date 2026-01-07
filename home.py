@@ -55,7 +55,7 @@ def main():
         if way_to_pred == "Ingresando datos manualmente":
             st.page_link("pages/pred_dem_man.py", label="➡️ Predicción demanda (manual)", icon="📈")
         elif way_to_pred == "Subiendo un archivo CSV":
-            st.page_link("pages/pred_iris_csv.py", label="➡️ Predicción demanda (CSV)", icon="📄")
+            st.page_link("pages/pred_dem_csv.py", label="➡️ Predicción demanda (CSV)", icon="📄")
 
     elif opcion == "Predicción de rotura de stock":
         way_to_pred = st.radio(
@@ -67,9 +67,9 @@ def main():
         st.markdown("### Ir a la página")
 
         if way_to_pred == "Ingresando datos manualmente":
-            st.page_link("pages/pred_iris_man.py", label="➡️ Predicción de rotura de stock (manual)", icon="📈")
+            st.page_link("pages/pred_stock_csv.py", label="➡️ Predicción de rotura de stock (manual)", icon="📈")
         elif way_to_pred == "Subiendo un archivo CSV":
-            st.page_link("pages/pred_iris_csv.py", label="➡️ Predicción de rotura de stock (CSV)", icon="📄")
+            st.page_link("pages/pred_stock_man.py", label="➡️ Predicción de rotura de stock (CSV)", icon="📄")
 
     else:
         st.info("Selecciona una opción para ver los accesos.")
