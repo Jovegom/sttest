@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 from utils import predict_flores
+from datetime import date
 
 # Título de la aplicación
 st.title('Predicción manual de demanda')
