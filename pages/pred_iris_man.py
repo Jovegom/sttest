@@ -20,6 +20,8 @@ for col in columns:
     # Widget de entrada numérica para cada característica
     input_data[col] = st.number_input(col, value=0.0)
 
+st.sidebar.header("Parametros del usuario")
+
 # Botón para realizar la predicción
 if st.button('Realizar Predicción'):
     # Convertir el diccionario de entrada a un DataFrame de una sola fila
