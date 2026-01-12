@@ -11,38 +11,27 @@ st.write('**Ingresa los datos manualmente para realizar la predicción de la dem
 
 input_data = {}
 
+# 📅 FECHA DE PREDICCIÓN
 # ===============================
-# 📈 VENTAS HISTÓRICAS (mínimo 5)
+fecha_prediccion = st.date_input(
+    "Fecha de predicción",
+    value=date.today()
+)
+
+st.info(
+    f"⚠️ La predicción para **{fecha_prediccion}** se realizará utilizando los datos históricos "
+    "disponibles actualmente en el sistema. "
+    "Si deseas mayor precisión, puedes subir un archivo CSV con datos actualizados."
+)
+
 # ===============================
-st.subheader("Ventas históricas (mínimo 5 registros)")
+# OPCIÓN DE SUBIR CSV
+# ===============================
+uploaded_file = st.file_uploader("Sube un CSV con datos de ventas históricas actualizadas (opcional)", type=["csv"])
 
-ventas = []
-fechas = []
-
-for i in range(5):
-    col1, col2 = st.columns(2)
-
-    with col1:
-        venta = st.number_input(
-            f'Ventas #{i+1}',
-            min_value=0,
-            step=1,
-            key=f'venta_{i}'
-        )
-
-    with col2:
-        fecha = st.date_input(
-            f'Fecha venta #{i+1}',
-            value=date.today(),
-            key=f'fecha_{i}'
-        )
-
-    ventas.append(venta)
-    fechas.append(fecha)
-
-input_data['ventas_historicas'] = ventas
-input_data['fechas_ventas'] = fechas
-
+if uploaded_file:
+    st.success("CSV cargado correctamente. La predicción usará estos datos actualizados.")
+            
 # ===============================
 # 💰 PRECIO DEL PRODUCTO (€)
 # ===============================
